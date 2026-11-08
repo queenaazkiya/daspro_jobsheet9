@@ -9,6 +9,8 @@ public class GroupScore23 {
         int j;
         int score;
         float totalScore, avgScore;
+        float maxAvgScore = 0;
+        int bestGroup = 0;
 
         while (i <= 6) {
             System.out.println("Group " + i);
@@ -21,8 +23,15 @@ public class GroupScore23 {
             }
             avgScore = totalScore / 5;
             System.out.println("Group " + i + ": average score = " + avgScore);
+
+            if (avgScore > maxAvgScore) {
+                maxAvgScore = avgScore; // Update the new highest score
+                bestGroup = i;          // Record the group number that achieved it
+            }
             i++;
         }
+        System.out.println("\n========================================");
+        System.out.println("The group with the highest average score is Group " + bestGroup);
         input.close();
     }
 }
